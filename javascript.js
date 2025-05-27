@@ -23,6 +23,8 @@ function getComputerChoice() {
 
 getComputerChoice();
 
+console.log(getComputerChoice());
+
 //When page is loaded
 //Open a prompt window asking "Rock, paper or scissors?"
 //When user inputs choice
@@ -44,7 +46,15 @@ getComputerChoice();
 
 function getHumanChoice() {
     let choice = prompt("Rock, paper, or scissors?");
-}
+    if (choice === "rock") {
+        console.log("rock");
+    } else if (choice ==="paper") {
+        console.log("paper");
+    } else if (choice ==="scissors") {
+        console.log("scissors");
+    }
+    return choice;
+    }
 
 getHumanChoice();
 
