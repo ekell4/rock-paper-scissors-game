@@ -1,62 +1,47 @@
-//When page is loaded
-//Randomly generate a decimal value between 0 and 1
-//If value is less than 0.3
-//Return rock
-//If value is greater than 0.3 but less than 0.6
-//Return paper
-//If value is greater than 0.6
-//Return scissor
+let humanScore = 0; //start game at zero
+let computerScore = 0; //start game at zero
 
 function getComputerChoice() {
-    let a = Math.random();
+    let a = Math.random(); //Randomly generate a decimal value between 0 and 1
     let result;
-    if (a<=0.3) {
-        result = "rock";
-    } else if (a>0.3 && a<=0.6) {
-        result = "paper";
-    } else if (a>0.6) {
-        result = "scissor";
+    if (a<=0.3) { //If value is less than 0.3
+        result = "rock"; //Return rock
+    } else if (a>0.3 && a<=0.6) { //If value is greater than 0.3 but less than 0.6
+        result = "paper"; //Return paper
+    } else if (a>0.6) { //If value is greater than 0.6
+        result = "scissor"; //Return scissor
     }
         return result;
     }
     
-
-getComputerChoice();
-
-console.log(getComputerChoice());
-
-//When page is loaded
-//Open a prompt window asking "Rock, paper or scissors?"
-//When user inputs choice
-//Check choice against computer choice
-//If user and computer make the same choice
-//Alert "It's a tie! You made the same choice. Choose again"
-//If user chooses rock, and computer chooses scissors
-//Alert "Yes! Rock crushes scissors."
-//If user chooses rock, and computer chooses paper
-//Alert "No. Paper covers rock."
-//If user chooses paper, and computer chooses rock
-//Alert "Yes! Paper covers rock."
-//If user chooses paper, and computer chooses scissors
-//Alert "No. Scissors cut paper."
-//If user chooses scissors, and computer chooses paper
-//Alert "Yes! Scissors cut paper."
-//If user chooses scissors, and computer chooses rock
-//Alert "No. Rock crushes scissors"
+getComputerChoice(); //Call the function
+console.log(getComputerChoice()); //Show the result of the function in the console
 
 function getHumanChoice() {
-    let choice = prompt("Rock, paper, or scissors?");
-    if (choice === "rock") {
-        console.log("rock");
-    } else if (choice ==="paper") {
-        console.log("paper");
-    } else if (choice ==="scissors") {
-        console.log("scissors");
+    let choice = prompt("Rock, paper, or scissors?").toLowerCase(); //Make pop-up window with question and let it accept any case
+    if (choice === "rock") { //If the user types rock
+        console.log("rock"); //Show rock in console
+    } else if (choice ==="paper") { //If the user types paper
+        console.log("paper"); //Show paper in the console
+    } else if (choice ==="scissors") { //If the user types scissors
+        console.log("scissors"); //Show scissors in the console
     }
     return choice;
     }
 
-getHumanChoice();
+getHumanChoice(); //Call the function
 
-let humanScore = 0;
-let computerScore = 0;
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        alert(`It's a tie! You both chose ${humanChoice}.`);
+    } else if ((humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper"))
+    {humanScore ++; alert(`You win! ${humanChoice} beats ${computerChoice}!`);
+    } else {computerScore++; alert(`You lose! ${computerChoice} beats ${humanChoice}!`);}
+    console.log(`Score: Human ${humanScore} Computer ${computerScore}`);
+    }
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+playRound(humanSelection, computerSelection);
