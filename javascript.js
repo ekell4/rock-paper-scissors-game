@@ -9,13 +9,10 @@ function getComputerChoice() {
     } else if (a>0.3 && a<=0.6) { //If value is greater than 0.3 but less than 0.6
         result = "paper"; //Return paper
     } else if (a>0.6) { //If value is greater than 0.6
-        result = "scissor"; //Return scissor
+        result = "scissors"; //Return scissor
     }
         return result;
     }
-    
-getComputerChoice(); //Call the function
-console.log(getComputerChoice()); //Show the result of the function in the console
 
 function getHumanChoice() {
     let choice = prompt("Rock, paper, or scissors?").toLowerCase(); //Make pop-up window with question and let it accept any case
@@ -29,7 +26,6 @@ function getHumanChoice() {
     return choice;
     }
 
-getHumanChoice(); //Call the function
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
