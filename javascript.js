@@ -26,17 +26,18 @@ function getHumanChoice() {
     return choice;
     }
 
-
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-        alert(`It's a tie! You both chose ${humanChoice}.`);
-    } else if ((humanChoice === "rock" && computerChoice === "scissors") ||
-        (humanChoice === "paper" && computerChoice === "rock") ||
-        (humanChoice === "scissors" && computerChoice === "paper"))
-    {humanScore ++; alert(`You win! ${humanChoice} beats ${computerChoice}!`);
-    } else {computerScore++; alert(`You lose! ${computerChoice} beats ${humanChoice}!`);}
-    console.log(`Score: Human ${humanScore} Computer ${computerScore}`);
-    }
+function playGame () {
+    function playRound(humanChoice, computerChoice) {
+        if (humanChoice === computerChoice) {
+            alert(`It's a tie! You both chose ${humanChoice}.`);
+        } else if ((humanChoice === "rock" && computerChoice === "scissors") ||
+            (humanChoice === "paper" && computerChoice === "rock") ||
+            (humanChoice === "scissors" && computerChoice === "paper"))
+        {humanScore ++; alert(`You win! ${humanChoice} beats ${computerChoice}!`);
+        } else {computerScore++; alert(`You lose! ${computerChoice} beats ${humanChoice}!`);}
+        console.log(`Score: Human ${humanScore} Computer ${computerScore}`);
+        }
+}
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
