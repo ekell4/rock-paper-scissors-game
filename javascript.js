@@ -37,8 +37,13 @@ function playGame () {
         } else {computerScore++; alert(`You lose! ${computerChoice} beats ${humanChoice}!`);}
         console.log(`Score: Human ${humanScore} Computer ${computerScore}`);
         }
-}
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
+playGame();
+playGame();
+playGame();
+playGame();
+playGame();
